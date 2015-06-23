@@ -11,15 +11,28 @@ function get_content_from_github($url) {
 	curl_setopt($ch,CURLOPT_USERAGENT,'Hello Git!');
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	$content = curl_exec($ch);
+	
  if($content == false) die(curl_error($ch));
+	
 	curl_close($ch);
+	//$content=json_encode($content);
 	return $content;
 }
+
 $left="https://api.github.com/users/";
 $right="/repos";
 $url=$left.$username.$right;
 $abc = get_content_from_github($url);
-$myString=(string)$abc;
-echo $abc;
+$i=0;
+for($i=0;$i<strlen($abc);$i++){
+	if($abc[$i]==','){
+		echo nl2br(".\n");	  
+		
+	}
+	echo $abc[$i];	
+}
+
+
+
 
 ?>
