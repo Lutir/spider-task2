@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>Task 2-Spider</title>
+		<link rel="stylesheet" type="text/css" href="form.1css"></link>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
+		
+	</head>
+	
+	<body>
+		<div id="main">
+		<h1>Form</h1>
+		<p>User enters username to get info regarding the repo's</p><br><br>
+		<form id="form" name="form" >
+		<a>Enter Username :</a>
+		<input id="username" name="username" type="text" />
+		<input id="submit" onclick="ajaxConnect()" type="button" value="Submit">
+		</form>
+		</div>
+		<script>
+			function ajaxConnect(){
+			var username = document.getElementById("username").value;
+			alert(username);
+			var string = 'username1=' + username;
+			if(username === ''){
+			alert("fill username!");}
+			else
+			{
+			$.ajax({
+			type:"POST",
+			url:"api_connect.php",
+			data:string,
+			dataType: 'json',
+			contentType: "html",
+			success: function(html){
+			alert(html);
+			}
+			});
+			}
+			return false;
+			}
+		</script>
+	</body>
+	
+</html>
