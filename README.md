@@ -13,6 +13,6 @@ The <b>server gets the requests and contacts the api</b><br> then <b>The API gen
 Things remaining to do-<br><br>
 >Making a database,in which the server checks for information.If not present there then gets info from API and updates the database.<br>
 >Establish a connection to get the info from API to server.<br>
->Basic designing part.<br>
+>Basic designing part left.<br>
 
 
